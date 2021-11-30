@@ -28,6 +28,7 @@ router.get('/:id',(req,res)=>{
 router.post('/',(req,res)=>{
     Post.create({
         title: req.body.title,
+        text: req.body.text,
         user_id: req.body.user_id
     })
 .then(PostData =>{

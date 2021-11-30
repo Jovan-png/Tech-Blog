@@ -17,6 +17,9 @@ Post.init(
     title:{
         type: DataTypes.STRING,
     },
+    text:{
+        type: DataTypes.STRING,
+    },
     user_id:{
         type: DataTypes.INTEGER,
         references:{
