@@ -24,5 +24,8 @@ router.get('/', (req,res)=>{
     console.log(err)
     })
 })
+router.get('/login',(req,res)=>{
+    res.render('login')
+})
 
 module.exports = router;
