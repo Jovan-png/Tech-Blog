@@ -11,7 +11,7 @@ Comment.init(
         autoIncrement: true,
         allowNull: false
     },
-    text:{
+    c_text:{
         type: DataTypes.STRING,
     },
     user_id:{

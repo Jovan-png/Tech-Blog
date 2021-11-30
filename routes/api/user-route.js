@@ -1,9 +1,20 @@
 const router = require('express').Router();
-const {User} = require('../../models')
+const {User, Post, Comment} = require('../../models')
 const sequelize = require('../../config/connection')
 
 router.get('/',(req,res)=>{
-User.findAll()
+User.findAll({
+    include:[
+    {
+        model: Post,
+        attributes: ['id','title','text','user_id']
+    },
+  {
+        model: Comment,
+        attributes: ['id','c_text','user_id','post_id']
+    }
+]
+})
 .then(UserData => res.json(UserData))
 .catch(err => console.log(err))
 })
@@ -12,7 +23,17 @@ router.get('/:id',(req,res)=>{
     User.findOne({
         where: {
             id: req.params.id
+        },
+        include:[
+        {
+            model: Post,
+            attributes: ['id','title','text','user_id']
+        },
+        {
+            model: Comment,
+            attributes: ['id','c_text','user_id','post_id']
         }
+    ]
     })
     .then(UserData =>{
 res.json(UserData)
