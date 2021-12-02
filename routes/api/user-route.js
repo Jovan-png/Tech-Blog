@@ -11,7 +11,8 @@ User.findAll({
     },
   {
         model: Comment,
-        attributes: ['id','c_text','user_id','post_id']
+        attributes: ['id','c_text','user_id','post_id'],
+        
     }
 ]
 })
@@ -48,7 +49,14 @@ router.post('/',(req,res)=>{
         password: req.body.password
     })
     .then(UserData =>{
-        res.json(UserData)
+        req.session.save(()=>{
+            req.session.user_id = UserData.id;
+            req.session.username = UserData.username;
+            req.session.LoggedIn = true;
+
+            res.json(UserData);
+        })
+        
     })
     .catch(err => console.log(err))
 })
@@ -82,7 +90,14 @@ router.post('/login',(req,res)=>{
             res.status(400).json({message: "wrong password my guy"});
             return;
         }
-        res.json({user: UserData, message: "logged in my boy!"})
+        req.session.save(()=>{
+            req.session.user_id = UserData.id;
+            req.session.username = UserData.username;
+            req.session.LoggedIn = true;
+
+            res.json({user: UserData, message: "logged in my boy!"})
+        })
+        
     })
   
 });

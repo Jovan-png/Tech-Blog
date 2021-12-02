@@ -1,18 +1,8 @@
+
 <ul class="list">
     {{#each posts as |post|}}
     <li class="post-container">
-        <div class="title">
-     <h1>{{post.title}}</h1>
-     </div>
-     <div class="text">
-{{post.text}}
-     </div>
-          <div class="user">
-{{post.user.username}}
-     </div>
-
+{{> post-info post}}
     </li>
     {{/each}}
 </ul>
-
-<h1>HEOLLLLOOLO</h1>

@@ -13,6 +13,10 @@ Comment.init(
     },
     c_text:{
         type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            len:[2]
+        }
     },
     user_id:{
         type: DataTypes.INTEGER,
@@ -32,7 +36,6 @@ Comment.init(
 },
   {
 sequelize,
-timestamps: false,
 freezeTableName: true,
 underscored: true,
 modelName: 'comment'

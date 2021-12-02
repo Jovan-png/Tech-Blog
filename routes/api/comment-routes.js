@@ -15,9 +15,10 @@ Comment.findAll()
 });
 
 router.post('/', (req, res) => {
+    if(req.session){
     Comment.create({
         c_text: req.body.c_text,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id
     })
     .then(commentData=>{
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
     .catch(err=>{
         console.log(err)
     })
-
+}
 });
 
 router.delete('/:id', (req, res) => {

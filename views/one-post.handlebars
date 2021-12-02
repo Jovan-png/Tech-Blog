@@ -1,0 +1,41 @@
+
+<ul class="list">
+    <li class="post-container">
+        <div class="title-container">
+     <h1 class="title">{{post.title}}</h1>
+        <h3 class="user">Posted By {{post.user.username}}</h3>
+     </div>
+
+     <div class="text">
+{{post.text}}
+     </div>
+    </li>
+</ul>
+
+
+
+<form class="comment-container">
+    <div>
+            <textarea name="comment-body"></textarea>
+        </div>
+        <div>
+            <button type="button" class="cBtn">add comment</button>
+        </div>
+    </form>
+
+
+
+{{#each post.comments as |comment|}}
+    <div class="comments">
+        <section class="comment">
+            <div class="data">
+                Made By{{user.username}}
+            </div>
+<div class="text">
+{{comment.c_text}}
+</div>
+        </section>
+
+    </div>
+    {{/each}}
+    <script src="/javascript/comment.js"></script>

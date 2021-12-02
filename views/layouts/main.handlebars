@@ -10,10 +10,17 @@
 <body>
     <header>
         <h1 class="header-text">Tech Blog</h1>
+        
+        
         <ul>
-           <a href="/"> <li>Home</li></a>
-           <a href="/login"><li>Login</li></a>
-           <a href="/logout"> <li>Logout</li></a>
+           
+           <a href="/"> <button type="button" class="">Home</button></a>
+            {{!-- {{#if LoggedIn}} --}}
+  <a href="/dashboard"> <button type="button" class="">Dashboard</button></a>
+           <a href="/logout"> <button type="button" Id="logout-btn">Logout</button></a>
+{{!-- {{else}} --}}
+                      <a href="/login"><button type="button" id="login-btn">Login</button></a>
+ {{!-- {{/if}} --}}
         </ul>
     </header>
     <main>
@@ -25,6 +32,6 @@
         </h3>
     </footer>
       
-    
+    <script src="/javascript/logout.js"></script>
 </body>
 </html>

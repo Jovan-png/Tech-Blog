@@ -3,9 +3,14 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment} = require('../models');
 
 
+
+
 router.get('/', (req,res)=>{
     console.log(req.session)
     Post.findAll({
+        where:{
+          user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'title',
@@ -19,14 +24,14 @@ router.get('/', (req,res)=>{
     .then(postData =>{
         console.log(postData)
         const posts = postData.map(post=> post.get({plain: true}))
-        res.render('homepage', {posts})
+        res.render('dashboard', {posts})
     })
     .catch(err=>{
     console.log(err)
     })
 })
 
-router.get('/post/:id', (req,res)=>{
+router.get('/edit/:id', (req,res)=>{
 Post.findOne({
     where:{
         id: req.params.id
@@ -47,30 +52,11 @@ Post.findOne({
         return;
     }
     const post = postData.get({plain: true})
-    res.render('one-post', {post})
+    res.render('edit-post', {post})
 })
 .catch(err =>{
     console.log(err)
 })
-})
-
-router.get('/login',(req,res)=>{
-    if(req.session.LoggedIn){
-        res.redirect('/');
-        return
-    }
-    
-    res.render('login')
-})
-
-router.get('/logout',(req,res)=>{
-    if(req.session.LoggedIn){
-     req.session.destroy(()=>{
-         res.status(204).end()
-     });
-    }else{
-        res.status(404).end
-    }
 })
 
 module.exports = router;

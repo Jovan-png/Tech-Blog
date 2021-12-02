@@ -1,12 +1,12 @@
 
-function signup(){
+async function signup(){
 
-    const username = document.querySelector('#uSign').value.trim()
-    const email = document.querySelector('#eSign').value.trim()
-    const password = document.querySelector('#pSign').value.trim()
+    const username = document.querySelector('#uSign').value.trim();
+    const email = document.querySelector('#eSign').value.trim();
+    const password = document.querySelector('#pSign').value.trim();
 
     if(username && email && password){
-      fetch('/api/users',{
+     const response = await fetch('/api/users',{
             method: 'post',
             body: JSON.stringify({
                 username,
@@ -15,20 +15,22 @@ function signup(){
             }),
             headers:{ 'Content-Type': 'application/json'}
         })
-        .then(promise =>{
-            console.log(promise)
-        })
+      if(response.ok){
+        document.location.replace('/login')
+      }else{
+          alert(response.statusText)
+      }
+
     }
 
 }
-function login(){
-console.log('hi')
+async function login(){
     
-    const email = document.querySelector('#eSign').value.trim()
-    const password = document.querySelector('#pSign').value.trim()
+    const email = document.querySelector('#eLog').value.trim();
+    const password = document.querySelector('#pLog').value.trim();
 
     if(email && password){
-      fetch('/api/users/login',{
+    const response = await  fetch('/api/users/login',{
             method: 'post',
             body: JSON.stringify({
                 email,
@@ -36,9 +38,11 @@ console.log('hi')
             }),
             headers:{ 'Content-Type': 'application/json'}
         })
-        .then(promise =>{
-            console.log(promise)
-        })
+        if(response.ok){
+            document.location.replace('/')
+        }else{
+            alert(response.statusText)
+        }
     }
 
 }

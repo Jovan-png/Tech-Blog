@@ -1,0 +1,58 @@
+ <a href="/dashboard"> &larr; Back to dashboard</a>
+<ul class="list">
+    <li class="post-container">
+        <div class="title-container">
+     <h1 class="title">{{post.title}}</h1>
+        <h3 class="user">Posted By {{post.user.username}}</h3>
+     </div>
+
+     <div class="text">
+{{post.text}}
+     </div>
+    </li>
+</ul>
+
+<section>
+    <h2>Edit Post</h2>
+    <form class="edit-post">
+        <div>
+            <label for"edit-post-title">Title</label>
+            <input type="text" id="edit-post-title" name="post-title"/>
+        </div>
+        <div>
+            <label for"edit-posttext">text</label>
+            <input type="text" id="edit-post-text" name="post-title"/>
+        </div>
+        <button type="button" class="edit-post">Save Post</button>
+        <button type="button" class="delete-post">Delete post</button>
+    </form>
+</section> --}}
+
+<form class="comment-container">
+    <div>
+            <textarea name="comment-body"></textarea>
+        </div>
+        <div>
+            <button type="button" class="cBtn">add comment</button>
+        </div>
+    </form>
+<h1>Comments</h1>
+
+
+{{#each post.comments as |comment|}}
+    <div class="comments">
+        <section class="comment">
+            <div class="data">
+                Made By{{user.username}}
+            </div>
+<div class="text">
+{{comment.c_text}}
+</div>
+        </section>
+
+    </div>
+    {{/each}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

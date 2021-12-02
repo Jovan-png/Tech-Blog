@@ -5,6 +5,12 @@ const sequelize = require('../../config/connection')
 
 router.get('/',(req,res)=>{
 Post.findAll({
+    attributes: [
+        'id',
+        'title',
+        'text',
+        'created_at'
+    ],
     include:{
         model: Comment,
         attributes: ['id','c_text','user_id','post_id'],
@@ -23,6 +29,12 @@ Post.findAll({
 
 router.get('/:id',(req,res)=>{
     Post.findOne({
+        attributes: [
+            'id',
+            'title',
+            'text',
+            'created_at'
+        ],
         where:{
             id: req.params.id
         }
@@ -38,7 +50,7 @@ router.post('/',(req,res)=>{
     Post.create({
         title: req.body.title,
         text: req.body.text,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
 .then(PostData =>{
     res.json(PostData)
