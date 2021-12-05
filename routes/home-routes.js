@@ -19,7 +19,10 @@ router.get('/', (req,res)=>{
     .then(postData =>{
         console.log(postData)
         const posts = postData.map(post=> post.get({plain: true}))
-        res.render('homepage', {posts})
+        res.render('homepage', {
+            posts,
+            LoggedIn: req.session.LoggedIn
+        })
     })
     .catch(err=>{
     console.log(err)
@@ -65,10 +68,12 @@ router.get('/login',(req,res)=>{
 
 router.get('/logout',(req,res)=>{
     if(req.session.LoggedIn){
+        res.redirect('/')
      req.session.destroy(()=>{
          res.status(204).end()
      });
     }else{
+        res.redirect('/')
         res.status(404).end
     }
 })

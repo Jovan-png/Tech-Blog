@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const {Comment} = require('../../models')
 const sequelize = require('../../config/connection')
-
+const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
-Comment.findAll()
+Comment.findAll({
+    attributes: ['id' ,'c_text','created_at']
+})
 .then(commentData=>{
     res.json(commentData)
 })
@@ -14,7 +16,7 @@ Comment.findAll()
 })
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     if(req.session){
     Comment.create({
         c_text: req.body.c_text,

@@ -1,8 +1,8 @@
-        <div class="title-container">
-    <a href="/post/{{id}}"> <h1 class="title">{{title}}</h1></a>
-        <h3 class="user">Posted By {{user.username}}</h3>
-     </div>
-
-     <div class="text">
-{{text}}
-     </div>
+<div class="title-container">
+    <div>
+        <a href="/post/{{id}}"> <h1 class="title">{{title}}</h1></a>
+    </div>
+    <div class="meta">
+Posted By {{user.username}} on {{ created-at}}
+    </div>
+</div>

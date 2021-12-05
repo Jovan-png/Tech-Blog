@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheet/style.css">
-    <title>Document</title>
+    <title>Tech Blog</title>
 </head>
 <body>
     <header>
         <h1 class="header-text">Tech Blog</h1>
         
+    <hr>
         
         <ul>
            
-           <a href="/"> <button type="button" class="">Home</button></a>
-            {{!-- {{#if LoggedIn}} --}}
-  <a href="/dashboard"> <button type="button" class="">Dashboard</button></a>
-           <a href="/logout"> <button type="button" Id="logout-btn">Logout</button></a>
-{{!-- {{else}} --}}
-                      <a href="/login"><button type="button" id="login-btn">Login</button></a>
- {{!-- {{/if}} --}}
+           <a href="/"> <button type="button" class="btn">Home</button></a>
+             <a href="/dashboard"> <button type="button" class="btn">Dashboard</button></a>
+{{#if LoggedIn}}
+
+           <a href="/logout"> <button type="button" Id="logout-btn" class="btn">Logout</button></a>
+{{else}}
+                      <a href="/login"><button type="button" id="login-btn" class="btn">Login</button></a>
+{{/if}}
         </ul>
     </header>
     <main>

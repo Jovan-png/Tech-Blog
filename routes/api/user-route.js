@@ -7,7 +7,7 @@ User.findAll({
     include:[
     {
         model: Post,
-        attributes: ['id','title','text','user_id']
+        attributes: ['id','title','text','user_id', 'created_at']
     },
   {
         model: Comment,
@@ -28,7 +28,7 @@ router.get('/:id',(req,res)=>{
         include:[
         {
             model: Post,
-            attributes: ['id','title','text','user_id']
+            attributes: ['id','title','text','user_id', 'created_at']
         },
         {
             model: Comment,
