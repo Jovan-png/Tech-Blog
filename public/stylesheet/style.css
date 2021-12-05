@@ -117,6 +117,12 @@ textarea {
 .data {
   color: gray;
 }
+.create_post {
+  border: 0;
+  padding: 15px;
+  background-color: rgb(210, 211, 255);
+  margin: 5px;
+}
 .comments {
   background-color: rgb(219, 219, 219);
   width: 50vh;
@@ -131,4 +137,10 @@ textarea {
   color: #6a8fd4;
   margin: 5px;
   cursor: pointer;
+}
+.meta {
+  color: rgb(182, 182, 182);
+}
+.post-text {
+  text-overflow: auto;
 }

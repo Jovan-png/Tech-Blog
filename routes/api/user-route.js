@@ -32,7 +32,7 @@ router.get('/:id',(req,res)=>{
         },
         {
             model: Comment,
-            attributes: ['id','c_text','user_id','post_id']
+            attributes: ['id','c_text','user_id','post_id', 'created_at']
         }
     ]
     })

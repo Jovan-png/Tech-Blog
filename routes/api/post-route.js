@@ -36,9 +36,17 @@ router.get('/:id',(req,res)=>{
             'text',
             'created_at'
         ],
+        include:{
+            model: Comment,
+            attributes:['id' ,'c_text','created_at'],
+            include:{
+                model: User,
+                attributes: ['username']
+            },
         where:{
             id: req.params.id
         }
+    }
     })
     .then(PostData=>{
         res.json(PostData)

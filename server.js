@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const path = require('path');
 const sequelize = require('./config/connection');
 const routes = require('./routes')
+const helpers = require('./utils/helpers');
 
 const session = require('express-session')
 const SequalizeStore = require('connect-session-sequelize')(session.Store);
@@ -11,11 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-const hbs = exphbs.create({})
+const hbs = exphbs.create({helpers})
 
 const sess = {
     secret: 'Something Secret :)',
-    cookie: {},
+    cookie: {maxAge:
+        600000
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequalizeStore({

@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const {Comment} = require('../../models')
+const {Comment, User} = require('../../models')
 const sequelize = require('../../config/connection')
 const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
 Comment.findAll({
-    attributes: ['id' ,'c_text','created_at']
+    attributes: ['id' ,'c_text','created_at'],
+include:{
+    model: User,
+    attributes: ['username']
+
+}
 })
 .then(commentData=>{
     res.json(commentData)
