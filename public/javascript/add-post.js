@@ -14,6 +14,8 @@ if(title && text){
         headers: {
             'Content-Type': 'application/json'
         }
+    }).catch(err=>{
+        console.log(err)
     })
     if(response.ok){
         document.location.replace('/dashboard')
