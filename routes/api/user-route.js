@@ -99,6 +99,9 @@ router.post('/login',(req,res)=>{
         })
         
     })
+    .catch(err=>{
+        console.log(err)
+    })
   
 });
 

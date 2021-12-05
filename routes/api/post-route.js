@@ -76,6 +76,9 @@ router.put('/:id', withAuth,(req,res)=>{
             id: req.params.id
         }
     })
+    .catch(err=>{
+        console.log(err)
+    })
 });
 
 
