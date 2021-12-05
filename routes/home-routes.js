@@ -25,9 +25,10 @@ router.get('/', (req,res)=>{
             LoggedIn: req.session.LoggedIn
         })
     })
-    .catch(err=>{
-    console.log(err)
-    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 })
 
 router.get('/post/:id', (req,res)=>{
@@ -53,9 +54,10 @@ Post.findOne({
     const post = postData.get({plain: true})
     res.render('one-post', {post})
 })
-.catch(err =>{
-    console.log(err)
-})
+.catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 })
 
 router.get('/login',(req,res)=>{
@@ -69,12 +71,10 @@ router.get('/login',(req,res)=>{
 
 router.get('/logout',(req,res)=>{
     if(req.session.LoggedIn){
-        res.redirect('/')
      req.session.destroy(()=>{
          res.status(204).end()
      });
     }else{
-        res.redirect('/')
         res.status(404).end
     }
 })

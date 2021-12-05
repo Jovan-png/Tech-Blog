@@ -17,7 +17,10 @@ User.findAll({
 ]
 })
 .then(UserData => res.json(UserData))
-.catch(err => console.log(err))
+.catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 })
 
 router.get('/:id',(req,res)=>{
@@ -39,7 +42,10 @@ router.get('/:id',(req,res)=>{
     .then(UserData =>{
 res.json(UserData)
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 })
 
 router.post('/',(req,res)=>{
@@ -58,7 +64,10 @@ router.post('/',(req,res)=>{
         })
         
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 })
 
 router.put('/:id',(req,res)=>{
@@ -114,7 +123,10 @@ router.delete('/:id',(req,res)=>{
     .then(UserData =>{
         res.json(UserData)
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 })
 
 module.exports = router;

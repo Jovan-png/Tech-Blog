@@ -30,9 +30,10 @@ router.get('/', (req,res)=>{
             LoggedIn: true
         })
     })
-    .catch(err=>{
-    console.log(err)
-    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 })
 
 router.get('/edit/:id', (req,res)=>{
@@ -58,9 +59,9 @@ Post.findOne({
     const post = postData.get({plain: true})
     res.render('edit-post', {post})
 })
-.catch(err =>{
-    console.log(err)
-})
+.catch(err => {
+    res.status(500).json(err);
+  });
 })
 
 module.exports = router;
