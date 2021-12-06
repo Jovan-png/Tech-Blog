@@ -4,6 +4,8 @@
 
 ## Live Link
 
+https://fast-peak-88686.herokuapp.com/
+
 ## Description
 
     In this project I made the entire frontend and backend for my website. The website is a tech blog where you can sign up create and delete post and also leave comments on other bloggers post!
