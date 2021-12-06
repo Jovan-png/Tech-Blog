@@ -142,5 +142,31 @@ textarea {
   color: rgb(182, 182, 182);
 }
 .post-text {
-  text-overflow: auto;
+  word-wrap: break-word;
+}
+
+.edit-div {
+  color: #5785da;
+  font-weight: 500;
+  margin-top: 50px;
+  position: absolute;
+  bottom: auto;
+}
+.edit-link {
+  color: #5785da;
+  font-weight: 500;
+}
+.edit-post-btn {
+  background-color: green;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+}
+.delete-post {
+  background-color: red;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
 }

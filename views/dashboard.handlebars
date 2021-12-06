@@ -1,4 +1,4 @@
- <a href="/hompage"> &larr; Back to homepage</a>
+ <a href="/"> &larr; Back to homepage</a>
 <section>
     <h2>Create New Post</h2>
     <form class="new-post">
@@ -12,16 +12,20 @@
         </div>
         <button type="button" class="create_post">Create</button>
     </form>
-</section> --}}
+</section>
 
 {{#if posts.length}}
 <section>
   <h2>Your Posts</h2>
 <ul class="list">
     {{#each posts as |post|}}
+    
     <li class="post-container">
+
 {{> post-info post}}
+<div class="edit-div">
     <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </div>
     </li>
     {{/each}}
 </ul>

@@ -28,4 +28,4 @@ if(title && text){
 }
 }
 
-document.querySelector('.edit-post').addEventListener('click', editPost);
+document.querySelector('.edit-post-btn').addEventListener('click', editPost);
