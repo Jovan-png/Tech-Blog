@@ -69,5 +69,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Screenshot!
-[screencapture-localhost-3001-2021-12-05-20_32_09](https://user-images.githubusercontent.com/88255194/144777809-48fc8d65-7e33-4279-8f5d-ed3b64e74f26.png)
+![alt text](https://user-images.githubusercontent.com/88255194/144777809-48fc8d65-7e33-4279-8f5d-ed3b64e74f26.png)
 
